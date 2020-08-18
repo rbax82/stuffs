@@ -2,3 +2,4 @@ apt install snmpd lm-sensors unattended-upgrades apt-listchanges git build-essen
 echo "Debian-snmp ALL = NOPASSWD: /usr/sbin/dmidecode" > /etc/sudoers.d/snmp
 echo "snmp ALL = NOPASSWD: /usr/sbin/dmidecode" >> /etc/sudoers.d/snmp
 
+for f in /sys/devices/system/cpu/vulnerabilities/*; do echo "${f##*/} -" $(cat "$f"); done
