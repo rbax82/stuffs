@@ -19,7 +19,7 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin ca-certificates curl gnupg kea unbound chrony docker lm-sensors snmpd molly-guard
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin ca-certificates curl gnupg kea unbound chrony docker lm-sensors snmpd molly-guard net-tools
 #Set the timezone
 sudo timedatectl set-timezone America/Edmonton
 #Set the clock
