@@ -22,7 +22,7 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin ca-certificates curl gnupg kea unbound chrony docker lm-sensors snmpd molly-guard
 #Set the timezone
 sudo timedatectl set-timezone America/Edmonton
-#Sure hope chrony synced by now.
-sudo hwclock -w
+#Set the clock
+sudo systemctl stop chronyd && sudo chronyd -q 'server pool.ntp.org iburst' && sudo systemctl start chronyd &&  sudo chronyc -a makestep && sudo hwclock -w
 #REBOOT
 sudo reboot
