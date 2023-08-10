@@ -23,6 +23,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 #Set the timezone
 sudo timedatectl set-timezone America/Edmonton
 #Set the clock
-sudo systemctl stop chronyd && sudo chronyd -q 'server pool.ntp.org iburst' && sudo systemctl start chronyd &&  sudo chronyc -a makestep && sudo hwclock -w
+echo "makestep 0.1 3" >> /etc/chrony/chrony.conf
+sudo bash -c "systemctl stop chronyd && chronyd -q 'server pool.ntp.org iburst' && systemctl start chronyd &&  chronyc -a makestep &&  hwclock -w"
 #REBOOT
 sudo reboot
